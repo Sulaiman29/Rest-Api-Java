@@ -21,7 +21,7 @@ public class Main {
 
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             JSONObject responseJson = new JSONObject(response.body());
-            System.out.println(response.body());
+            System.out.println(responseJson.getInt("total")); // Pretty print the JSON response
         } catch (Exception e) {
             e.printStackTrace();
         }
