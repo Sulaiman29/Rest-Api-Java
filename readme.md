@@ -101,3 +101,17 @@ while (page <= totalPages) {
     page++;
 }
 ```
+
+## Common HackerRank question patterns
+
+### Return sorted list
+Collections.sort(list);
+
+### Count matches
+if (team.equals("Barcelona")) count++;
+
+### Average
+double avg = sum / (double) count;
+
+### Unique values
+Set<String> set = new HashSet<>();
