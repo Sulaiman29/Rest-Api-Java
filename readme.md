@@ -68,5 +68,36 @@ for (int i = 0; i < data.length(); i++) {
     titles.add(movie.getString("title"));
 }
 ```
+Flow:
+```code
+JSONObject (whole response)
+   ↓
+JSONArray ("data")
+   ↓
+JSONObject (each movie)
+   ↓
+List<String> (store final result)
+```
 
+### Pagination
+General Template:
+```Java
+int page = 1;
+int totalPages = 1;
 
+while (page <= totalPages) {
+
+    String url = baseUrl + "?page=" + page;
+    // call API
+
+    JSONObject obj = new JSONObject(response.body());
+
+    totalPages = obj.getInt("total_pages");
+
+    JSONArray data = obj.getJSONArray("data");
+
+    // process data
+
+    page++;
+}
+```
