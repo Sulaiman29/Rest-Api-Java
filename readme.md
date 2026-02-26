@@ -115,3 +115,8 @@ double avg = sum / (double) count;
 
 ### Unique values
 Set<String> set = new HashSet<>();
+
+## Import statements mandatory
+import java.net.http.*;
+import java.net.URI;
+import org.json.*;
