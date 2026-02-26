@@ -5,6 +5,7 @@ import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -15,7 +16,7 @@ public class q2 {
         int result = 0;
         String compUrl = "https://jsonmock.hackerrank.com/api/football_competitions";
         String matchesUrl = "https://jsonmock.hackerrank.com/api/football_matches";
-        String encodedCompetition = URLEncoder.encode(competition, java.nio.charset.StandardCharsets.UTF_8);
+        String encodedCompetition = URLEncoder.encode(competition, StandardCharsets.UTF_8);
 
         // find comp winner
         HttpClient client = HttpClient.newHttpClient();
@@ -33,6 +34,7 @@ public class q2 {
             JSONObject obj = new JSONObject(response.body());
             JSONArray data = obj.getJSONArray("data");
             winner = data.getJSONObject(0).getString("winner");
+            winner = URLEncoder.encode(winner, StandardCharsets.UTF_8);
 
         } catch (Exception e) {
             e.printStackTrace();
